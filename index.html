@@ -8,28 +8,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <title>Memory Game</title>
+    <title>Gif Memory Game</title>
 </head>
 <body>
-    <h1>Memory</h1>
+    <h1>Gif Memory Game</h1>
     <div id="welcome">
-        <p id="complete"></p>
-        <div id="time">Ready to test your memory? Find the matching pairs as quickly as possible!</div>
-        <!-- <form action="/action_page.php">
-        </form> -->
-        <div id="start">Start</div>
+
+
+        
+        
+        <form id="imgSearch">
+            <h2>Ready to test your memory? Find the matching pairs as quickly as possible!</h2>
+            <br>
+            <label for="theme">To start the game, type a theme for the images you'd like to match:</label>
+            <input id="textInput" type="text" name="theme">
+            <input type="submit" id="submitButton" value="Start the Game!">
+        </form>
+        <div id="restart">
+            <p id="complete"></p>
+            <div id="time"></div>
+            <div id="restartButton">Play Again</div>
+        </div>
+        
+
+
+        
+
     </div>
-    <!-- <form id="search-form">
-        <label for="search-term">Select a Card Theme</label>
-        <input type="text" name="search-term">
-        <input type="submit">
-    </form> -->
     <div id="text"></div>
+
+    <div id="window">
+        
+    </div>
     <div id="gameboard">
 
     </div>
     <p id="time"></p>
     <div id="attribution"><a href="https://www.vecteezy.com/free-vector/pattern">Pattern Vectors by Vecteezy</a></div>
 </body>
-<script src="script3.js"></script>
+<!-- Script3 is backup -->
+<script src="script.js"></script>
 </html>

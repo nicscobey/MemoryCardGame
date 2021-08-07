@@ -1,40 +1,75 @@
 let cardOptions;
-let cardContent;
+let cardContent = [];
 let board = document.getElementById('gameboard');
 let cardCount = 0;
 let deck;
 let cardA = null; 
 let cardB = null;
 let countCorrect = 0;
-let startButton = document.getElementById('start');
+let restartButton = document.getElementById('restartButton');
+let restartSection = document.getElementById('restart');
 let startTime;
 let endTime;
 let cards;
 let welcome = document.getElementById('welcome');
+let submitButton = document.getElementById('submitButton');
 
 //REQUIRED THINGS TO FIX:
 
 //BONUS THINGS TO ADD:
 //change the card content -- make into objects
-//add a timer to track how long it takes to clear the board
-//window to start the timer and game
 //choose the card background color or cardBack theme (through an API)
 //select difficulty (number of cards)
 
+let deckSize = 4;
 
-function loadCardContent() {
-    cardContent = ["Jan", "Feb", "Mar", "Apr", "May", "June"];
-}
+    
+    async function searchForImages(event){
+        event.preventDefault();
+        console.log('in searchforimages');
 
-// loadCardContent();
+        // for (let imgNumber = 0; imgNumber < deckSize; imgNumber++) {
+            // console.log('imgNumber is ' + imgNumber);
+            const theme = document.querySelector('input[name="theme"]').value;
+            const apiKEY = "i9u5FoDahfPMI2LFAipRD3KXJ45afk0f";
+            const urlString = "https://api.giphy.com/v1/gifs/search?api_key="+apiKEY+"&q="+theme;
+            const response = await fetch(urlString);
+            const gifs = await response.json();
+            console.log(gifs);
+    
+            
+        // }
+        
+        for (let imgNumber = 0; imgNumber < deckSize; imgNumber++) {
+            const url = gifs.data[imgNumber].images.fixed_width.url; 
+            console.log(url);
+            // const image = document.createElement('img');
+            // image.setAttribute('src', url);
+            // cardContent.push(image);
+            cardContent.push(url);
+        }
 
-startButton.addEventListener('click', ()=> startGame());
+        console.log(cardContent);
+
+        startGame();
+    }
+    // searchForImages();
+    
+    // console.log('cardContent is ');
+    // console.log(cardContent);
+    // ()=> startGame();
+// }
+
+document.querySelector("#imgSearch").addEventListener("submit", searchForImages);
+
+
+restartButton.addEventListener('click', ()=> startGame());
 
 function startGame() {
-    loadCardContent();
+    // loadCardContent();
     // cardContent = ["Jan", "Feb", "Mar"];
 
-    welcome.style.display = "none";
+    document.getElementById('imgSearch').style.display = "none";
     startTime = Date.now();
     console.log(startTime);
 
@@ -65,11 +100,23 @@ function addCards() {
         content.appendChild(front);
         let back = document.createElement('div');
         // back.innerHTML = "Pick me!";
+
+        //RIGHT HERE: CHANGE THE FOLLOWING 4 LINES TO INSTEAD SET BACK'S BACKGROUND TO THE GIF
         back.classList.add('cardBack');
         content.appendChild(back);
 
-        let node = document.createTextNode(cardContent[randomNum]);
-        back.appendChild(node);
+        // let node = document.createTextNode(cardContent[randomNum]);
+        // back.appendChild(node);
+       
+       
+        //this is my test
+        // const image = document.createElement('img');
+        // image.setAttribute('src', url);
+        // giphyResultsDiv.appendChild(image);
+
+        back.style.backgroundImage = "url("+(cardContent[randomNum])+")";
+
+
 
         board.appendChild(card);
 
@@ -161,13 +208,13 @@ function gameComplete() {
 
 
     //update welcome
-    welcome.style.display = "block";
+    restartSection.style.display = "block";
     board.innerHTML = "";
 
 
 
     //FIX SO THAT WHEN PLAY AGAIN IS PUSHED, GAME RESTARTS
-    startButton.innerHTML = "Play Again?";
+    // restartButton.innerHTML = "Play Again?";
     document.getElementById('complete').innerHTML = "Game Complete! Total Elapsed Time: ";
     document.getElementById('time').innerHTML = seconds + " seconds";
 
@@ -177,3 +224,8 @@ function gameComplete() {
 
     // console.timeEnd('Execution');
 }
+
+restartButton.addEventListener('click', () => {
+    document.getElementById('imgSearch').style.display = "block";
+    restartSection.style.display = "none";
+})
