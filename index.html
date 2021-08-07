@@ -12,40 +12,33 @@
 </head>
 <body>
     <h1>Gif Memory Game</h1>
-    <div id="welcome">
-
-
         
-        
-        <form id="imgSearch">
-            <h2>Ready to test your memory? Find the matching pairs as quickly as possible!</h2>
-            <br>
-            <label for="theme">To start the game, type a theme for the images you'd like to match:</label>
-            <input id="textInput" type="text" name="theme">
-            <input type="submit" id="submitButton" value="Start the Game!">
-        </form>
-        <div id="restart">
-            <p id="complete"></p>
-            <div id="time"></div>
-            <div id="restartButton">Play Again</div>
-        </div>
-        
-
-
-        
-
+    <form id="imgSearch">
+        <h2>Ready to test your memory? Find the matching pairs as quickly as possible! To start the game, you'll need to select several settings:</h2>
+        <br>
+        <label for="difficulty">Type a theme for the cards:</label>
+        <input placeholder="Type here..." id="textInput" type="text" name="theme" required>
+        <label for="difficulty">Select the game's difficulty:</label>
+        <select name="difficulty">
+            <option value = "easy">Easy (10 cards)</option>
+            <option value = "medium">Medium (20 cards)</option>
+            <option value = "hard">Hard (30 cards)</option>
+        </select>
+        <input type="submit" id="submitButton" value="Start the Game!">
+    </form>
+    <div id="restart">
+        <p id="complete"></p>
+        <div id="time"></div>
+        <div id="restartButton">Play Again</div>
     </div>
+
+
     <div id="text"></div>
+    <div id="window"></div>
+    <div id="gameboard"></div>
 
-    <div id="window">
-        
-    </div>
-    <div id="gameboard">
-
-    </div>
     <p id="time"></p>
     <div id="attribution"><a href="https://www.vecteezy.com/free-vector/pattern">Pattern Vectors by Vecteezy</a></div>
 </body>
-<!-- Script3 is backup -->
 <script src="script.js"></script>
 </html>

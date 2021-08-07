@@ -1,16 +1,6 @@
 body {
-    /* position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center; */
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
-    /* background-color: #E5D1B3; */
     background-color: #EBF1D0;
     color: #50808E;
 }
@@ -20,13 +10,6 @@ h1 {
     color: #50808E;
 }
 
-#welcome {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 #time {
     color: #50808E;
     font-size: 20px;
@@ -34,7 +17,6 @@ h1 {
 
 #imgSearch {
     background-color: #50808E;
-    height: 200px;
     border-radius: 25px;
     color: white;
     display: flex;
@@ -42,15 +24,22 @@ h1 {
     justify-content: center;
     align-items: center;
     padding: 50px;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+label {
+    margin: 25px;
 }
 
 #textInput {
-    margin: 25px;
     padding: 5px;
 }
 
 #submitButton {
     padding: 5px;
+    margin: 25px;
 }
 
 #restart {
@@ -59,8 +48,6 @@ h1 {
 
 #restartButton {
     background-color: #b4e5e3;
-    /* background-color: #50808E; */
-    /* color: white; */
     font-size: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -68,6 +55,9 @@ h1 {
     box-shadow: 2px 2px 5px black;
     margin-top: 40px;
     transition: transform 0.4s, box-shadow 0.4s;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #restartButton:hover {
@@ -77,10 +67,6 @@ h1 {
 }
 
 #gameboard {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));    
 }
@@ -88,7 +74,6 @@ h1 {
 .card {
     height: 150px;
     width: 150px;
-    /* background-color: gray; */
     margin: 12.5px;
     perspective: 1500px;
 }
@@ -97,21 +82,10 @@ h1 {
     cursor: pointer;
 }
 
-/*
-    ADD THIS TO JS FOR CLICK
-*/
-/* .card:hover .cardContent {
-    transform: rotateY(180deg);
-} */
-
 .cardContent {
     height: 100%;
     width: 100%;
     position: relative;
-
-
-    /* ADD THIS TO JS ON CLICK, THEN REMOVE IT:*/
-    /* transition: transform 0.8s; */
     transform-style: preserve-3d;
     border: 5px solid #50808E;
     border-radius: 25px;
@@ -136,7 +110,6 @@ h1 {
 }
 
 .cardFront {
-    /* background-color: royalblue; */
     background-image: url("abstract_waves_banner_design_2006.jpg");
     background-position: center;
     background-attachment: fixed;
@@ -152,18 +125,3 @@ h1 {
     background-position: center;
     background-size: cover;
 }
-
-#attribution {
-    /* position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-}
-
-#window {
-    background: orange;
-}
-
-/* #submit {
-    display: block;
-} */
